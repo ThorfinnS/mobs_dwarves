@@ -21,13 +21,10 @@
 -- General variables
 --
 
-local minetest_log_level = minetest.settings:get("debug_log_level")
 local mob_difficulty = tonumber(minetest.settings:get("mob_difficulty"))
 if (mob_difficulty == nil) then
 	 mob_difficulty = 1
 end
-
-local mod_load_message = "[Mod] Mobs Dwarves [v0.1.0] loaded."
 
 
 --
@@ -810,10 +807,7 @@ local function heal_over_time(self, dtime)
 	if (self.injuried == true) then
 		if (self.state ~= "attack") and (self.state ~= "runaway") then
 			-- recover 1HP every 4 seconds
-			if (self.health < self.initial_hp)
-			and (self.state ~= "attack")
-			and (self.state ~= "runaway")
-			then
+			if (self.health < self.initial_hp) then
 				if (self.heal_counter > 0) then
 					self.heal_counter = self.heal_counter - dtime
 
@@ -1298,8 +1292,9 @@ mobs:alias_mob("mobs:dwarf", "mobs_dwarves:dwarf")
 -- Minetest engine debug logging
 --
 
-if (minetest_log_level == nil) or (minetest_log_level == "action") or
-	(minetest_log_level == "info") or (minetest_log_level == "verbose") then
-
-	minetest.log("action", mod_load_message)
+if (minetest.settings:get("debug_log_level") == nil)
+or (minetest.settings:get("debug_log_level") == "action")
+or	(minetest.settings:get("debug_log_level") == "info")
+or (minetest.settings:get("debug_log_level") == "verbose") then
+	minetest.log("action", "[Mod] Mobs Dwarves [v0.1.1] loaded.")
 end

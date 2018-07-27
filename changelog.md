@@ -10,6 +10,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 	- Allow to hire a dwarf.
 
 
+
+## [0.1.1] - 2018-07-11
+### Added
+
+	- alphabet.txt
+
+### Changed
+
+	- Removed redundant conditional check.
+	- Minor code improvements.
+
+
+
 ## [0.1.0] - 2018-07-11
 ### Added
 
